@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "nome": "O Poder do Hábito",
             "link": "https://fir3.net/8nZ16Zg",
-            "foto": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn1GcSNHDT2uWU1P7YJSLHxigN7r90EiTUjUfjIBCYzmjOF_18SPcfqQsGmcIq0vVUsYuxiJ-GsuUum2mgYjBFzaLsbFmuZZXuvxlsVNVOO-n5xet0N_aUVHMqtfA",
+            "foto": "https://m.media-amazon.com/images/I/815iPX0SgkL._SL1500_.jpg",
             "descricao": "Charles Duhigg explora a ciência por trás dos hábitos, explicando como eles são formados e como podem ser transformados para melhorar a produtividade, saúde e bem-estar."
         }
     ];
