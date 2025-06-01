@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('tiktokModal');
     const closeModal = document.getElementById('closeModal');
 
-    // ✅ Mostra modal corretamente centralizado
     modal.style.display = 'flex';
 
     closeModal.addEventListener('click', () => {
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const linkElement = document.createElement('a');
             linkElement.href = livro.link;
             linkElement.target = '_blank';
-            linkElement.className = 'card flex items-center bg-purple-800 p-5 rounded-xl shadow-xl hover:bg-purple-700';
+            linkElement.className = 'card flex items-center p-5 rounded-xl shadow-xl hover:bg-purple-700';
             linkElement.innerHTML = `
                 <img src="${livro.foto}" alt="${livro.nome}" class="w-20 h-20 object-cover rounded-lg mr-5">
                 <div>
