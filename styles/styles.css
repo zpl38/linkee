@@ -1,5 +1,6 @@
 body {
     font-family: 'Inter', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #3b0764, #1e1b4b, #111827);
 }
 
 .container {
@@ -12,10 +13,10 @@ body {
     transition: all 0.4s ease;
     opacity: 0;
     transform: translateY(40px);
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    border: 1px solid rgba(216, 180, 254, 0.2);
     border-radius: 16px;
-    background-color: #6B21A8;
+    background: linear-gradient(135deg, rgba(107,33,168,0.7), rgba(88,28,135,0.8));
+    backdrop-filter: blur(10px);
 }
 
 .card.visible {
@@ -24,10 +25,18 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
     border-color: #D8B4FE;
-    animation: pulseBorder 1.8s infinite;
+    animation: pulseBorder 1.5s infinite;
+}
+
+.card img {
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
 }
 
 .search-bar {
@@ -50,21 +59,13 @@ body {
     opacity: 0.7;
 }
 
-.card img {
-    transition: transform 0.4s ease;
-}
-
-.card:hover img {
-    transform: scale(1.15);
-}
-
 .title {
     animation: glow 2.5s ease-in-out infinite alternate;
-    color: #F3E8FF;
+    color: #E9D5FF;
     letter-spacing: 0.05em;
+    text-shadow: 0 0 15px rgba(236, 203, 255, 0.7);
 }
 
-/* ✅ Modal centralizado */
 .modal {
     display: none;
     position: fixed;
@@ -84,6 +85,7 @@ body {
     max-width: 360px;
     width: 90%;
     animation: modalPop 0.6s ease-out;
+    color: #1e1b4b;
 }
 
 .close {
@@ -119,14 +121,14 @@ body {
     100% { border-color: #D8B4FE; }
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
+@keyframes modalPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
 }
 
 .animate-float {
