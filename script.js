@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "nome": "O Poder do Hábito",
             "link": "https://fir3.net/8nZ16Zg",
-            "foto": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn1GcSNHDT2uWU1P7YJSLHxigN7r90EiTUjUfjIBCYzmjOF_18SPcfqQsGmcIq0vVUsYuxiJ-GsuUum2mgYjBFzaLsbFmuZZXuvxlsVNVOO-n5xet0N_aUVHMqtfA",
+            "foto": "https://a-static.mlcdn.com.br/800x560/livro-o-poder-do-habito-charles-duhigg/magazineluiza/088604500/b0c83d41e1d0571818cb5d847fca2816.jpg",
             "descricao": "Charles Duhigg explora a ciência por trás dos hábitos, explicando como eles são formados e como podem ser transformados para melhorar a produtividade, saúde e bem-estar."
         },
         {
@@ -94,6 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "link": "https://fir3.net/E0c5L",
             "foto": "https://livraria.funep.org.br/wp-content/uploads/2021/12/MAIS-ESPERTO-QUE-O-DIABO_THIAGONIGRO_SELO2021.png",
             "descricao": "Escrito por Napoleon Hill, este livro revela, por meio de uma alegórica conversa com o 'Diabo', os segredos por trás do fracasso e do sucesso. Explora armadilhas mentais que limitam o potencial humano e oferece insights para superá-las e alcançar objetivos."
+        },
+        {
+            "nome": "A Sutil Arte de Ligar o F*da-se",
+            "link": "https://fir3.net/9OFnd8M9i",
+            "foto": "https://m.media-amazon.com/images/I/71JvDx3cX+L._SL1500_.jpg",
+            "descricao": "Escrito por Mark Manson, este livro oferece uma abordagem direta e prática para viver uma vida mais significativa, ensinando como priorizar o que realmente importa e desapegar-se de pressões desnecessárias."
         }
     ];
 
