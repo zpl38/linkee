@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "nome": "O Poder do Hábito",
             "link": "https://fir3.net/8nZ16Zg",
-            "foto": "https://a-static.mlcdn.com.br/800x560/livro-o-poder-do-habito-charles-duhigg/magazineluiza/088604500/b0c83d41e1d0571818cb5d847fca2816.jpg",
+            "foto": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn1GcSNHDT2uWU1P7YJSLHxigN7r90EiTUjUfjIBCYzmjOF_18SPcfqQsGmcIq0vVUsYuxiJ-GsuUum2mgYjBFzaLsbFmuZZXuvxlsVNVOO-n5xet0N_aUVHMqtfA",
             "descricao": "Charles Duhigg explora a ciência por trás dos hábitos, explicando como eles são formados e como podem ser transformados para melhorar a produtividade, saúde e bem-estar."
         },
         {
@@ -100,6 +100,42 @@ document.addEventListener('DOMContentLoaded', () => {
             "link": "https://fir3.net/9OFnd8M9i",
             "foto": "https://m.media-amazon.com/images/I/71JvDx3cX+L._SL1500_.jpg",
             "descricao": "Escrito por Mark Manson, este livro oferece uma abordagem direta e prática para viver uma vida mais significativa, ensinando como priorizar o que realmente importa e desapegar-se de pressões desnecessárias."
+        },
+        {
+            "nome": "Aldaraia Sive Soyga Vocor",
+            "link": "https://seulink.net/YWfF",
+            "foto": "https://m.media-amazon.com/images/I/41cTcxg74qL._SL1500_.jpg",
+            "descricao": "Um tratado de magia do século XVI, associado a John Dee, este livro é conhecido por seus textos enigmáticos e tabelas misteriosas, supostamente revelado por anjos e decifrável apenas pelo arcanjo Miguel. É um marco na história do ocultismo e da alquimia renascentista."
+        },
+        {
+            "nome": "Mein Kampf - Adolf Hitler",
+            "link": "https://seulink.net/LF41",
+            "foto": "https://m.media-amazon.com/images/I/51qMEOY8eBL._SL1500_.jpg",
+            "descricao": "Escrito por Adolf Hitler, este livro combina autobiografia e ideologia política, expondo as ideias nacional-socialistas que influenciaram o regime nazista. É uma obra controversa, frequentemente estudada por seu impacto histórico e político."
+        },
+        {
+            "nome": "Necronomicon",
+            "link": "https://seulink.net/d9aH",
+            "foto": "https://m.media-amazon.com/images/I/51z7M5l8G7L._SL1500_.jpg",
+            "descricao": "Um grimório fictício criado por H.P. Lovecraft, o Necronomicon é descrito como um livro de magia proibida e conhecimento cósmico. Embora fictício, inspirou diversas obras e discussões sobre ocultismo e horror."
+        },
+        {
+            "nome": "Os Versos Satânicos - Salman Rushdie",
+            "link": "https://seulink.net/mHIMcZSW",
+            "foto": "https://m.media-amazon.com/images/I/51wO3awoh4L._SL1500_.jpg",
+            "descricao": "Romance de Salman Rushdie que mistura realismo mágico e temas de imigração, identidade e religião. A obra gerou controvérsia por sua representação do Islã, levando a debates sobre liberdade de expressão e censura."
+        },
+        {
+            "nome": "The Grand Grimoire",
+            "link": "https://seulink.net/nIAhsS",
+            "foto": "https://m.media-amazon.com/images/I/41X5X9X9X9L._SL1500_.jpg",
+            "descricao": "Também conhecido como 'O Livro Vermelho', este grimório medieval é um texto clássico de magia cerimonial, com instruções para rituais, invocações e pactos com entidades sobrenaturais, amplamente estudado no ocultismo."
+        },
+        {
+            "nome": "The Turner Diaries",
+            "link": "https://seulink.net/QmAaYrY",
+            "foto": "https://m.media-amazon.com/images/I/51X5X9X9X9L._SL1500_.jpg",
+            "descricao": "Escrito por William Luther Pierce sob o pseudônimo Andrew Macdonald, este romance distópico descreve uma revolução violenta baseada em ideologias supremacistas. É uma obra controversa, frequentemente associada a movimentos extremistas."
         }
     ];
 
