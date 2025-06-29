@@ -1,373 +1,115 @@
-body {
-    font-family: 'Inter', 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0a0a1a 0%, #150a2e 25%, #100a3e 50%, #0b0a60 75%, #3e0a83 100%);
-    background-attachment: fixed;
-    position: relative;
-    overflow-x: hidden;
-    cursor: default; /* Ensure default cursor */
-}
-
-/* Enhanced Stars (more subtle, moving, and ready for JS interaction) */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(1.5px 1.5px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
-        radial-gradient(1.5px 1.5px at 40% 70%, rgba(255, 255, 255, 0.7), transparent),
-        radial-gradient(1px 1px at 90% 40%, rgba(255, 255, 255, 0.9), transparent),
-        radial-gradient(1px 1px at 70% 80%, rgba(255, 255, 255, 0.6), transparent),
-        radial-gradient(1.5px 1.5px at 10% 90%, rgba(255, 255, 255, 0.8), transparent),
-        radial-gradient(1px 1px at 60% 10%, rgba(255, 255, 255, 0.7), transparent);
-    background-repeat: repeat;
-    background-size: 300px 300px; /* Larger to appear more spread out */
-    animation: starsMove 60s linear infinite; /* Slower, more subtle movement */
-    z-index: -1;
-    opacity: 0.9;
-}
-
-/* Improved Nebula/Galaxy (more fluid, less blocky) */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(ellipse at 70% 30%, rgba(120, 119, 198, 0.2) 0%, transparent 60%),
-        radial-gradient(ellipse at 30% 80%, rgba(255, 119, 198, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 50% 10%, rgba(119, 198, 255, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse at 90% 90%, rgba(200, 100, 255, 0.1) 0%, transparent 60%); /* Added more gradients */
-    z-index: -2; /* Lower z-index than stars for depth */
-    animation: nebulaFlow 40s ease-in-out infinite alternate; /* Slower and more gentle */
-}
-
-.container {
-    max-width: 64rem;
-    margin: 0 auto;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-}
-
-.card {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(40px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.04) 100%);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
+/* Estilos para o hover e transição da overlay */
+.book-overlay {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
-}
-
-.card:hover::before {
-    left: 100%;
-}
-
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.card img {
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 12px;
-}
-
-.card:hover img {
-    transform: scale(1.05);
-}
-
-.search-bar {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
     color: white;
-}
-
-.search-bar:focus {
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.search-bar::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.title {
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease-in-out infinite;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-}
-
-.modal {
-    /* Ajuste aqui: Garante que o modal comece 'display: none' por padrão,
-       e só apareça via JS para evitar sobreposição inicial. */
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    justify-content: center; /* Mantém para quando o JS mudar para flex */
-    align-items: center;     /* Mantém para quando o JS mudar para flex */
-}
-
-.modal.active { /* Nova classe para controlar visibilidade via JS */
     display: flex;
-}
-
-.modal-content {
-    padding: 32px;
-    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
     text-align: center;
-    max-width: 400px;
-    width: 90%;
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    animation: modalPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-sizing: border-box; /* Garante que padding não estoure o elemento */
+
+    opacity: 0; /* Começa totalmente transparente */
+    visibility: hidden; /* Esconde completamente o elemento */
+    pointer-events: none; /* Desabilita interações com o mouse quando invisível */
+    transform: translateY(10px); /* Posição inicial para a animação */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Transição para todas as propriedades */
+    z-index: 10; /* Garante que a overlay esteja acima do conteúdo do card */
 }
 
-.close {
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.book-card:hover .book-overlay {
+    opacity: 1; /* Torna visível ao passar o mouse */
+    visibility: visible; /* Garante que o elemento se torne visível */
+    pointer-events: auto; /* Habilita interações com o mouse ao passar o mouse */
+    transform: translateY(0); /* Posição final da animação */
 }
 
-.close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+/* Estilo para o botão de categoria ativo */
+.category-btn.active {
+    background-color: #3b82f6 !important; /* Tailwind blue-500 */
+    color: white !important;
 }
 
-.sidebar {
-    z-index: 10000;
-    background: linear-gradient(135deg,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(10, 0, 30, 0.95) 100%); /* Darker, more solid background for better contrast */
-    backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(255, 255, 255, 0.15); /* Slightly stronger border */
-    transform: translateX(-100%); /* Start hidden */
-    transition: transform 0.4s ease-in-out; /* Smooth transition */
-    position: fixed; /* Ensure it stays fixed */
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding-top: 60px; /* Space for hamburger button */
+/* Estilo para o foco da barra de pesquisa */
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-.sidebar.active {
-    transform: translateX(0);
+/* Estilos do Modo Escuro */
+.dark-mode {
+    background-color: #1a202c; /* bg-gray-900 */
+    color: #e2e8f0; /* text-gray-200 */
 }
-
-/* Hamburger Positioning and Styling - AJUSTADO PARA GARANTIR VISIBILIDADE DAS BARRINHAS */
-.hamburger {
-    z-index: 11000; /* Mais alto que o modal para sempre ficar por cima (se visível) */
-    padding: 12px;
-    border-radius: 12px; /* Arredondado, não redondo perfeito */
-    background: rgba(255, 255, 255, 0.15); /* Fundo sutil */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    transition: all 0.3s ease;
-    position: fixed; /* Posição fixa na tela */
-    top: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    display: flex; /* Essencial: usa Flexbox para alinhar as barrinhas */
-    flex-direction: column; /* As barrinhas ficam uma embaixo da outra */
-    justify-content: center; /* Centraliza as barrinhas verticalmente */
-    align-items: center; /* Centraliza as barrinhas horizontalmente */
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+.dark-mode .header {
+    background-color: #2d3748; /* bg-gray-800 */
+    border-bottom: 1px solid #4a5568; /* border-gray-600 */
 }
-
-.hamburger span {
-    display: block; /* Cada span é um bloco, permitindo width/height */
-    width: 28px; /* Largura da barrinha */
-    height: 3px; /* Altura da barrinha */
-    background: white; /* Cor branca para as barrinhas */
-    margin: 4px 0; /* Espaçamento entre as barrinhas */
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    border-radius: 2px;
+.dark-mode .text-gray-800 {
+    color: #e2e8f0; /* text-gray-200 */
 }
-
-.hamburger.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.dark-mode .search-input {
+    background-color: #4a5568; /* bg-gray-700 */
+    border-color: #6a768c; /* border-gray-600 */
+    color: #e2e8f0;
 }
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-    transform: translateX(-20px);
+.dark-mode .text-gray-400 {
+    color: #cbd5e0; /* text-gray-400 lightened */
 }
-
-.hamburger.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+.dark-mode .bg-gray-200 {
+    background-color: #4a5568; /* bg-gray-700 */
 }
-
-.hamburger:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: scale(1.1);
+.dark-mode .hover\:bg-gray-300:hover {
+    background-color: #616e7f; /* hover:bg-gray-600 */
 }
-
-.search-container {
-    position: relative;
+.dark-mode .text-gray-700 {
+    color: #e2e8f0; /* text-gray-200 */
 }
-
-.category-filter {
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.dark-mode .category-btn:not(.active) {
+    background-color: #4a5568; /* bg-gray-700 */
+    color: #e2e8f0; /* text-gray-200 */
 }
-
-.category-filter:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+.dark-mode .category-btn:not(.active):hover {
+    background-color: #616e7f; /* hover:bg-gray-600 */
 }
-
-.category-filter.bg-gray-700 {
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    border-color: rgba(255, 255, 255, 0.3);
+.dark-mode .bg-blue-100 {
+    background-color: #2a69b7; /* Darker blue for active in dark mode */
 }
-
-@media (max-width: 640px) {
-    .sidebar {
-        width: 80%;
-        max-width: none;
-    }
-    .hamburger {
-        width: 45px;
-        height: 45px;
-        top: 15px; 
-        left: 15px;
-    }
+.dark-mode .text-blue-700 {
+    color: #ffffff; /* White text for active in dark mode */
 }
-
-/* New/Adjusted Keyframes */
-@keyframes starsMove {
-    from {
-        background-position: 0px 0px;
-    }
-    to {
-        background-position: 300px 300px; /* Moves diagonally */
-    }
+.dark-mode .book-card {
+    background-color: #2d3748; /* bg-gray-800 */
+    border-color: #4a5568; /* border-gray-600 */
 }
-
-@keyframes nebulaFlow {
-    0% {
-        opacity: 0.3;
-        transform: scale(1) rotate(0deg) translateX(0) translateY(0);
-    }
-    25% {
-        opacity: 0.4;
-        transform: scale(1.05) rotate(5deg) translateX(10px) translateY(5px);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1) rotate(10deg) translateX(-5px) translateY(10px);
-    }
-    75% {
-        opacity: 0.4;
-        transform: scale(1.05) rotate(5deg) translateX(-10px) translateY(-5px);
-    }
-    100% {
-        opacity: 0.3;
-        transform: scale(1) rotate(0deg) translateX(0) translateY(0);
-    }
+.dark-mode .book-card h3,
+.dark-mode .book-card p {
+    color: #e2e8f0; /* text-gray-200 */
 }
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.dark-mode .text-gray-600 {
+    color: #cbd5e0; /* text-gray-300 */
 }
-
-@keyframes modalPop {
-    0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
-    50% { transform: scale(1.05) rotate(5deg); }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+.dark-mode .border-gray-300 {
+    border-color: #4a5568; /* border-gray-600 */
 }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.dark-mode .bg-white {
+    background-color: #2d3748; /* bg-gray-800 */
 }
-
-.category-title {
-    color: #F9FAFB;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.dark-mode .bg-blue-50 {
+    background-color: #254a7c; /* Darker blue for newsletter section */
 }
-
-footer a {
-    transition: all 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: float 3s ease-in-out infinite;
+.dark-mode .bg-gray-800 {
+    background-color: #1a202c; /* bg-gray-900 */
 }
-
-footer a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.dark-mode .text-gray-400 {
+    color: #a0aec0; /* text-gray-500 */
 }
-
-.modal-content a {
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.modal-content a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+.dark-mode .border-gray-700 {
+    border-color: #4a5568; /* border-gray-600 */
 }
